@@ -1,5 +1,4 @@
-// CONVERTER
-(function() {
+
     const inputIpv = document.querySelector("#pasteConvertUrl");
     const clearIpv = document.querySelector("#clearInputConvertBtn");
     const converter = document.querySelector("#converter-btn");
@@ -126,4 +125,3 @@
             resetConvertUI();
 
         });
-}());
