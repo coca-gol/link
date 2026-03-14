@@ -12,7 +12,6 @@
     const spinAudio = document.querySelector("#spinner-load-audios");
     const convertFm = document.querySelector("#converter-button-format");
    // const API = `${location.protocol}//${location.hostname}:3000`;
-    const IP = "https://examines.com";
     let converting = false;
     let current_Title = "media";
     function reUI() {
@@ -41,7 +40,7 @@
         }
     }
     async function fetchInfo(url) {
-        const res = await fetch("https://fantastic-dsc-raises-gig.trycloudflare.com/info", {
+        const res = await fetch("https://critical-talented-gcc-rational.trycloudflare.com/info", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -63,7 +62,7 @@
             try {
                 converting = true;
                 spin.classList.add("active");
-                const res = awaitfetch(`https://fantastic-dsc-raises-gig.trycloudflare.com/fetch?url=${encodeURIComponent(url)}&type=${type}`
+                const res = awaitfetch(`https://critical-talented-gcc-rational.trycloudflare.com/fetch?url=${encodeURIComponent(url)}&type=${type}`
                 );
                 if (!res.ok) throw new Error();
                 const blob = await res.blob();
