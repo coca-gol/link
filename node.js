@@ -1,3 +1,4 @@
+// CONVERTER
 (function() {
     const inputIpv = document.querySelector("#pasteConvertUrl");
     const clearIpv = document.querySelector("#clearInputConvertBtn");
@@ -11,7 +12,7 @@
     const spinAudio = document.querySelector("#spinner-load-audios");
     const convertFm = document.querySelector("#converter-button-format");
    // const API = `${location.protocol}//${location.hostname}:3000`;
-    const API = "https://parties-investments-colleges-balanced.trycloudflare.com";
+    const API = "https://critical-talented-gcc-rational.trycloudflare.com";
     let converting = false;
     let current_Title = "media";
     function resetConvertUI() {
@@ -73,7 +74,7 @@
                 a.download = `${current_Title}.${type === "video" ? "mp4": "mp3"}`;
                 a.click();
                 URL.revokeObjectURL(downloadUrl);
-            } catch(e) {
+            } catch {
                 alert("conversion failed");
                 convertFm.classList.add("hidden");
             } finally {
@@ -108,13 +109,13 @@
             current_Title = sanitizeFilename(info.title || "media");
             loading.classList.remove("active");
             setupDownloadButtons(url);
-        } catch () {
+        } catch {
             loading.classList.remove("active");
 
             if (getYouTubeId(url)) {
                 setupDownloadButtons(url);
             } else {
-                alert("failed to retrieve info");
+                alert("Gagal mengambil informasi video");
             }
         }
     });
