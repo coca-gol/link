@@ -84,7 +84,7 @@
             } 
         };
     }
-    function setupDownloadButtons(url) {
+    function setupDnb(url) {
         handleDownload(linksVideo, spinVideo, url, "video");
         handleDownload(linksAudio, spinAudio, url, "audio");
         convertFm.classList.remove("hidden");
@@ -107,13 +107,13 @@
             const info = await fetchInfo(url);
             current_Title = sanitizeFilename(info.title || "media");
             loading.classList.remove("active");
-            setupDownloadButtons(url);
+            setupDnb(url);
         } catch (err) {
             console.error(err);
             loading.classList.remove("active");
 
             if (getYouTubeId(url)) {
-                setupDownloadButtons(url);
+                setupDnb(url);
             } else {
                 alert("failed");
             }
