@@ -1730,8 +1730,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         document.querySelectorAll(".active-dominan-color").forEach(e => {
             e.style.transition = "background 1s ease";
-            e.style.background = "#fff";
-            e.querySelectorAll("*").forEach(txt => (txt.style.color = "#000"));
+            e.style.background = "#333";
+            e.querySelectorAll("*").forEach(txt => (txt.style.color = "#fff"));
         });
     }
 
