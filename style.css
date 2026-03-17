@@ -413,9 +413,6 @@ input[type="range"] {
     color: #222;
 }
 
-/* ====================================
-         Elemen Header ( di Atas)
-===================================== */
 .header-content {
     display: flex;
     justify-content: center;
@@ -502,10 +499,6 @@ input[type="range"] {
 #extrackAudioBtn {
     background: #007bff;
 }
-
-/* ====================================
-          (Area Konten Utama)
-  ======================================*/
 #message-video,
 .empty-message {
     display: flex;
@@ -646,7 +639,6 @@ input[type="range"] {
     opacity: 1;
     animation: spin 0.8s linear infinite;
 }
-/* PLAYER BOTTOM */
 #player-control-container {
     position: fixed;
     bottom: 0;
@@ -667,7 +659,7 @@ input[type="range"] {
     width: 100%;
     height: 50px;
     padding: 0.9em;
-    background: #fff;
+    background: #333;
     transition: background 0.3s ease, color 0.3s ease;
 }
 .progress-bar-border {
@@ -699,7 +691,6 @@ input[type="range"] {
     align-items: center;
     width: 60%;
 }
-/* Track Info + Kontrol */
 #now-playing-preview .all-cover-art {
     display: flex;
     justify-content: center;
@@ -722,7 +713,7 @@ input[type="range"] {
     gap: 0.1em;
     font-size: 0.9em;
     overflow: hidden;
-    color: #000;
+    color: #fff;
 }
 .track-details strong {
     display: flex;
@@ -742,7 +733,6 @@ input[type="range"] {
     font-size: 0.8em;
     color: #000;
 }
-/* Tombol Play / Next */
 .player-controls-group {
     display: flex;
     justify-content: center;
@@ -756,7 +746,7 @@ input[type="range"] {
     width: 40px;
     height: 40px;
     font-size: 1.5em;
-    color: #000;
+    color: #fff;
 }
 .player-bottom-category {
     display: flex;
@@ -783,7 +773,6 @@ input[type="range"] {
 .category-btn.active {
     color: #fff;
 }
-/* add video utama */
 #addVideoBtn {
     display: flex;
     justify-content: center;
@@ -797,7 +786,6 @@ input[type="range"] {
     color: #000;
 }
 
-/* NAV FILTER */
 #filter-mode {
     position: fixed;
     z-index: 2000;
@@ -840,7 +828,7 @@ input[type="range"] {
 #pre-list-edit {
     padding: 0 var(--padding-base);
 }
-/* Baru di event download */
+
 #preview-editting {
     height: 0;
     opacity: 0;
@@ -1454,10 +1442,6 @@ input[type="range"] {
     animation: spin 0.7s linear infinite;
 }
 
-
-/* ======================================
-          ID - SIDE Menu
- ====================================== */
 .side-menu-overlay {
     display: none;
     position: fixed;
@@ -1544,11 +1528,6 @@ input[type="range"] {
     font-size: 1em;
     margin: 0 2em;
 }
-
-
-/* ============================================
-         PLAYER CNT
-  ============================================ */
 #viewPopupMenu {
     position: fixed;
     bottom: 0;
@@ -1688,10 +1667,6 @@ input[type="range"] {
     cursor: pointer;
 }
 
-
-/* ======================================
-  ==================================== */
-/* NAV MENU EQUALIZER - PROGRESS BAR */
 #setup-audio-area,
 #eq-audio-area {
     position: fixed;
@@ -1770,7 +1745,6 @@ input[type="range"] {
 #eq-status {
     color: #555;
 }
-/* header (Eq - preset - close) */
 .sea-header-container {
     display: flex;
     justify-content: space-between;
@@ -1801,8 +1775,6 @@ input[type="range"] {
     color: #aaa;
     border: none;
 }
-
-/* EQUALIZER UNIT */
 #eqToggleBtn {
     display: flex;
     align-items: center;
@@ -1894,7 +1866,6 @@ input[type="range"] {
     background: transparent;
 }
 
-/* thumb */
 .eq-slider input[type="range"]::-webkit-slider-thumb,
 .eq-slider-merger input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -1961,7 +1932,6 @@ input[type="range"] {
     pointer-events: none;
 }
 
-/*  DUAL SLIDER */
 .progress-controls {
     position: relative;
     display: flex;
@@ -1997,7 +1967,6 @@ input[type="range"] {
     background: #fff;
     cursor: pointer;
 }
-/* Durasi & tombol play */
 .file-time-options {
     display: flex;
     width: 100%;
@@ -2035,7 +2004,6 @@ input[type="range"] {
     color: #000;
     cursor: pointer;
 }
-/* dual slider + time update... */
 .setting-cutter-container {
     display: flex;
     flex-direction: column;
@@ -2072,7 +2040,6 @@ input[type="range"] {
     background: transparent;
     pointer-events: none;
 }
-/* thumb aktif */
 .dual-slider-track input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     position: relative;
@@ -2086,7 +2053,6 @@ input[type="range"] {
     pointer-events: all;
     transform: translateY(-50%);
 }
-/* track utama */
 .dual-slider-track::before {
     content: "";
     position: absolute;
@@ -2099,7 +2065,6 @@ input[type="range"] {
     border-radius: 0.2em;
     transform: translateY(-50%);
 }
-/* highlight antara start–end */
 .dual-slider-track::after {
     content: "";
     position: absolute;
@@ -2110,7 +2075,6 @@ input[type="range"] {
     background: #fff;
     transform: translateY(-50%);
 }
-/* Tombol tambahan durasi ke dual slider... */
 .time-track-end-list {
     display: flex;
     justify-content: space-between;
@@ -2135,11 +2099,6 @@ input[type="range"] {
     background: #555;
     color: #fff;
 }
-
-
-/* ======================================
-=======================================  */
-/* METADATA ID3 TAG ---- */
 #meta-audio-area {
     position: fixed;
     bottom: 0;
@@ -2173,7 +2132,6 @@ input[type="range"] {
     padding-bottom: 0;
     flex-shrink: 0;
 }
-/* title menu auto save */
 .description {
     display: flex;
     justify-content: center;
@@ -2183,7 +2141,6 @@ input[type="range"] {
     font-size: 0.7em;
     color: #888;
 }
-/* AKSI SIMPAN metadata .....*/
 .file-name-and-preview-row {
     display: flex;
     flex-direction: column;
