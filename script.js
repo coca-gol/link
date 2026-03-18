@@ -1106,11 +1106,10 @@ const playLy = document.querySelector("#play-lyrics");
 
     function getSelectedText() {
         const id = document.querySelector("#tts-source").value;
-        let element = `#${id}`; 
-        const input = document.querySelector(element) ?? inputIds.title.value;
+        let element = `#${id}`;
+        const input = document.querySelector(element) ?? inputIds.title;
         return input ? input.value.trim(): "";
     }
-
     
 function speakLyrics() {
         const text = getSelectedText();
