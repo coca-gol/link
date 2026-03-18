@@ -1334,7 +1334,7 @@ input[type="range"] {
 #currentDurations {
     white-space: nowrap;
     font-size: 0.8em;
-    color: #fff000;
+    color: #fff;
 }
 .popup-progress-bar input {
     flex-grow: 1;
@@ -1353,7 +1353,7 @@ input[type="range"] {
     width: var(--space);
     height: var(--space);
     border-radius: 100%;
-    background: #fff000;
+    background: #fff;
     cursor: pointer;
 }
 
