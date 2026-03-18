@@ -104,40 +104,47 @@
     const blankFB = blankThumbnailConvert();
 
     converter.addEventListener("click", async () => {
-        const url = inputIpv.value.trim();
-        if (!url || !url.startsWith("https://")) {
-            showToast("invalid links", "", 3600);
-            return;
+    if (!navigator.onLine) {
+        showToast("offline mode", "internet required for downloader", 3600);
+        return;
+    }
+
+    const url = inputIpv.value.trim();
+
+    if (!url || !url.startsWith("https://")) {
+        showToast("invalid links", "", 3600);
+        return;
+    }
+    if (current_Title === current_process) return;
+
+    resetConvertUI();
+    loading.classList.add("active");
+
+    try {
+        const info = await fetchInfo(url);
+        current_Title = sanitizeFilename(info.title || "media");
+        current_process = current_Title;
+
+        if (previewImg) {
+            previewImg.src = info.thumbnail;
+            previewImg.onerror = () => {
+                previewImg.src = blankFB;
+            };
         }
-        if (current_Title === current_process) return;
 
-        resetConvertUI();
-        loading.classList.add("active");
-        
-        try {
-            const info = await fetchInfo(url);
-            current_Title = sanitizeFilename(info.title || "media");
-            current_process = current_Title;
+        loading.classList.remove("active");
+        iframe.classList.remove("hidden");
+        results.classList.remove("hidden");
+        setupDownloadButtons(url);
 
-            if (previewImg) {
-                previewImg.src = info.thumbnail;
-                
-                previewImg.onerror = () => {
-                    previewImg.src = blankFB;
-                };
-            }
-            loading.classList.remove("active");
-            iframe.classList.remove("hidden");
-            results.classList.remove("hidden");
-                
-            setupDownloadButtons(url);
+    } catch {
+        previewImg.src = blankFB;
+        loading.classList.remove("active");
 
-        } catch {
-            previewImg.src = blankFB;
-            loading.classList.remove("active");
-            setupDownloadButtons(url);
-        }
-    });
+        showToast("server error", "failed to fetch media info", 3600);
+
+    }
+});
 
     clearIpv.addEventListener("click",
         () => {
