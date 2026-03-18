@@ -72,7 +72,6 @@
         };
     }
 
-    /* ================= SETUP DOWNLOAD ================= */
     function setupDownloadButtons(url) {
         handleDownload(linksVideo, spinVideo, url, "video");
         handleDownload(linksAudio, spinAudio, url, "audio");
@@ -123,15 +122,14 @@
 
             if (previewImg) {
                 previewImg.src = info.thumbnail;
-                iframe.classList.remove("hidden");
                 
                 previewImg.onerror = () => {
                     previewImg.src = blankFB;
                 };
             }
             loading.classList.remove("active");
+            iframe.classList.remove("hidden");
             setupDownloadButtons(url);
-
         } catch {
             previewImg.src = blankFB;
             loading.classList.remove("active");
