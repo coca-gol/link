@@ -1598,7 +1598,7 @@ function speakLyrics() {
 
     let loadToken = 0;
     async function loadTrack(index) {
-        const token = ++loadToken; // 
+        const token = ++loadToken; 
         const trackMetadata = playingList[index];
         if (!trackMetadata || !trackMetadata.id) {
             showToast("Track metadata invalid");
@@ -1607,11 +1607,11 @@ function speakLyrics() {
         let blob = null;
         try {
             const items = await getMusikDariDB(trackMetadata.id);
-            
-            if (token !== loadToken) return; 
+
+            if (token !== loadToken) return;
             if (!items || !items.fileData) {
                 showToast(`file music ${trackMetadata.name} missing. Rescan required`, "yellow", 7200);
-                await deleteSongUnified(trackMetadata.id, trackMetadata.title); 
+                await deleteSongUnified(trackMetadata.id, trackMetadata.title);
                 return;
             }
             blob = items.fileData;
@@ -1619,18 +1619,9 @@ function speakLyrics() {
                 URL.revokeObjectURL(audioPlayer.src);
             }
             const url = URL.createObjectURL(blob);
-            currentIndex = index; 
+            currentIndex = index;
             audioPlayer.src = url;
             await audioPlayer.play().catch(()=> {});
-        } catch {
-            if (err?.name === "InvalidStateError" ||
-                err?.name === "DataError" ||
-                err?.name === "NotFoundError") {
-                return await clearAllMusic?.();
-            }
-            showToast(`error loading ${trackMetadata.name}`, "yellow", 7200);
-            resetPlayerUI();
-        } finally {
             if (audioPlayer.src) {
                 let title = trackMetadata.title || parseTrackInfo(trackMetadata.name);
                 let artist = trackMetadata.artist || parseTrackInfo(trackMetadata.name);
@@ -1688,8 +1679,17 @@ function speakLyrics() {
                     console.warn('[PLAYING] last blob:', blob);
                 };
             }
-        }
+        } catch {
+            if (err?.name === "InvalidStateError" ||
+                err?.name === "DataError" ||
+                err?.name === "NotFoundError") {
+                return await clearAllMusic?.();
+            }
+            showToast(`error loading ${trackMetadata.name}`, "yellow", 7200);
+            resetPlayerUI();
+        } 
     }
+
 
     playPauseBtn.addEventListener('click', () => {
         if (playingList.length === 0) return;
