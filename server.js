@@ -31,16 +31,13 @@ const hostIN = document.querySelector("#host-info");
     function sanitizeFilename(name) {
         return name.replace(/[\\/:*?"<>|]/g, "").trim();
     }
-
     async function fetchInfo(url, retries = 3, timeout = 12000) {
 
         for (let i = 0; i < retries; i++) {
-
             const controller = new AbortController();
             const timer = setTimeout(() => controller.abort(), timeout);
 
             try {
-
                 const res = await fetch(`${API}/info`, {
                     method: "POST",
                     headers: {
@@ -164,7 +161,6 @@ const hostIN = document.querySelector("#host-info");
                 };
                 previewImg.src = info.thumbnail || blankFB;
             }
-
             loading.classList.remove("active");
             results.classList.remove("hidden");
             hostIN.textContent = `${info.platform || 'Media'} - ${info.title || 'No Title'}`;
@@ -172,9 +168,8 @@ const hostIN = document.querySelector("#host-info");
 
         } catch (e) {
             console.error("fetchInfo error:", e);
-            
-            hostIN.textContent = "failed to fetch media info";
             resetConvertUI();
+            hostIN.textContent = "failed to fetch media info";
         }
     });
 
