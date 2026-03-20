@@ -172,15 +172,9 @@ const hostIN = document.querySelector("#host-info");
 
         } catch (e) {
             console.error("fetchInfo error:", e);
-            showToast(e.message === "unsupported media" ? "Media tidak didukung": "Gagal mengambil info", "", 3600);
-
+            
             hostIN.textContent = "failed to fetch media info";
-            if (previewImg) previewImg.src = blankFB;
-
-            loading.classList.remove("active");
-
-            results.classList.remove("hidden");
-            setupDownloadButtons(url);
+            resetConvertUI();
         }
     });
 
