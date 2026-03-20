@@ -899,15 +899,19 @@ input[type="range"] {
 }
 #video-preview-iframe {
     position: relative;
-    margin-top: var(--margin-base);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 30vh;
+    height: auto; 
+    margin-top: var(--margin-base);
     overflow: hidden;
 }
 #video-preview-iframe img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto; 
+    display: block; 
+    object-fit: contain; 
 }
 #video-preview-iframe i {
     position: absolute;
