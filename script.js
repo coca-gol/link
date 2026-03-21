@@ -1300,7 +1300,6 @@ function speakLyrics() {
             cutAudioPlayer.onloadedmetadata = () => {
                 const d = cutAudioPlayer.duration;
                 if (d >= 540) {
-                    isEdit(false);
                     resetActivityEdit();
                     showToast('maximum duration limit is around 9 minutes');
                     return;
@@ -1323,8 +1322,10 @@ function speakLyrics() {
                 currentPG.textContent = formatTime(c);
             };
             visualizer('stop');
+            if (are data) {
             await injectTags(track);
             isEdit(true);
+            }
         } catch {
             isEdit(false);
             resetActivityEdit();
