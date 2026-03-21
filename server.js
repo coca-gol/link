@@ -202,6 +202,5 @@ const hostIN = document.querySelector("#host-info");
         () => {
             if (!inputIpv.value.trim()) return;
             inputIpv.value = "";
-            resetConvertUI();
         });
 }());
