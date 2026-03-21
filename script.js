@@ -1297,19 +1297,21 @@ function speakLyrics() {
 
             visualizer('start', 'wave');
 
-            cutAudioPlayer.onloadedmetadata = () => {
+            cutAudioPlayer.onloadedmetadata = async () => {
                 const d = cutAudioPlayer.duration;
                 if (d >= 540) {
+                    isEdit(false);
                     resetActivityEdit();
                     showToast('maximum duration limit is around 9 minutes');
                     return;
-                }
+                } 
+
                 startSlider.max = endSlider.max = audioProgres.max = d;
                 endSlider.value = d;
                 startSlider.value = audioProgres.value = 0;
                 durent.forEach(e => e.textContent = formatTime(d));
-                applyHighlight();
-                updateRangeTrim();
+                
+                await Promise.all([applyHighlight(), updateRangeTrim()]);
             };
 
             cutAudioPlayer.ontimeupdate = () => {
@@ -1322,9 +1324,10 @@ function speakLyrics() {
                 currentPG.textContent = formatTime(c);
             };
             visualizer('stop');
-            if (are data) {
-            injectTags(track);
-            isEdit(true);
+            
+            if (areData) {
+                injectTags(track);
+                isEdit(true);
             }
         } catch {
             isEdit(false);
